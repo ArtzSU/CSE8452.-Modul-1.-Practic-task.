@@ -5,9 +5,9 @@ namespace Transport
 {
     public class Fleet
     {
-        private List<Vehicle> fleet = new List<Vehicle>();
+        private List<Garage> fleet = new List<Garage>();
 
-        public int AddTransport(Vehicle garage, bool debug = false)
+        public int AddGarage(Garage garage, bool debug = false)
         {
             fleet.Add(garage);
             if (debug)
@@ -17,7 +17,7 @@ namespace Transport
             return 1;
         }
 
-        public int RemoveTransport(Vehicle garage, bool debug = false)
+        public int RemoveGarage(Garage garage, bool debug = false)
         {
             fleet.Remove(garage);
             if (debug)
@@ -29,10 +29,13 @@ namespace Transport
 
         public Vehicle SearchVehicle(string plate)
         {
-            foreach (var vehicle in fleet)
+            foreach (var garage in fleet)
             {
-                if (vehicle.plate == plate)
-                    return vehicle;
+                foreach (var vehicle in garage.Transports)
+                {
+                    if (vehicle.Plate == plate)
+                        return vehicle;
+                }
             }
             return null;
         }

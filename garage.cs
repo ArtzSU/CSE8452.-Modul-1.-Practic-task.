@@ -6,6 +6,7 @@ namespace Transport
     public class Garage
     {
         private List<Vehicle> transports = new List<Vehicle>();
+        public List<Vehicle> Transports => transports;
 
         public void AddTransport(Vehicle transport, bool debug = false)
         {

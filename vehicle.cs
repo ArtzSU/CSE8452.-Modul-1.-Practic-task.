@@ -19,6 +19,8 @@ namespace Transport
             this.plate = plate;
         }
 
+        public string Plate { get { return plate; } }
+
         public bool StartEngine(bool debug = false)
         {
             this.engineIsWork = true;
